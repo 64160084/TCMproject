@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TCM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .background-image {
+      width: 100%;
+      height: 300px;
+      background-image: url('img/background.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .background-text {
+      position: absolute;
+      top: 17%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      font-size: 70px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
+      grid-gap: 10px;
+      margin-top: 20px;
+    }
+
+    .item {
+      background-color: #ddd;
+      padding: 20px;
+      width: 200px;
+      height: 200px;
+      cursor: pointer;
+      font-size: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-image">
+    <div class="background-text">TCM</div>
+  </div>
+  </div>
+  <div style="
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        background-color: #f0f0f0;
+      ">
+    <input type="text" placeholder="Search" style="flex-grow: 1; padding: 5px" id="myInput"
+      onkeyup="searchFunction()" />
+  </div>
+  <div class="container" id="myList">
+    <div class="item" onclick="navigateToPage2()">Animal</div>
+    <div class="item" onclick="navigateToFurniture()">Furniture</div>
+    <div class="item" onclick="navigateToHouse()">House</div>
+    <div class="item">Building</div>
+    <div class="item">Island</div>
+    <div class="item">Tree</div>
+    <div class="item">Vehicle</div>
+    <div class="item">Sword</div>
+    <div class="item">Gun</div>
+    <div class="item">Fruit</div>
+    <div class="item">Glass</div>
+    <div class="item">Bottle</div>
+  </div>
+
+  <script>
+    function navigateToPage2() {
+      window.location.href = "Animal.html";
+    }
+    function navigateToFurniture() {
+      window.location.href = "Furniture.html";
+    }
+    function navigateToHouse() {
+      window.location.href = "House.html";
+    }
+
+    function searchFunction() {
+      var input, filter, myList, item, a, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      myList = document.getElementById("myList");
+      item = myList.getElementsByClassName("item");
+
+      for (i = 0; i < item.length; i++) {
+        txtValue = item[i].textContent || item[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          item[i].style.display = "";
+        } else {
+          item[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
