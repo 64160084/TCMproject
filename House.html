@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TCM - Animal</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        max-width: 100%; 
+        height: auto;
+      }
+      .background-image {
+        width: 100%;
+        height: 300px; 
+        background-image: url('img/background.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+      .background-text {
+        position: absolute;
+        top: 17%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: black;
+        font-size: 70px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ddd;
+        padding: 30px;
+        cursor: pointer;
+        width: 200px;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+        margin-top: 20px;
+        justify-items: center;
+      }
+      .item p {
+       font-size: 25px; 
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-image">
+        <div class="background-text">TCM</div>
+      </div>
+    </div>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        background-color: #f0f0f0;
+      "
+    >
+      <span
+        style="margin-right: 20px; cursor: pointer; font-size: 30px;"
+        onclick="window.location.href='Hend.html'"
+        >&#8249;</span
+      >
+      <input
+        type="text"
+        placeholder="Search"
+        style="flex-grow: 1; padding: 5px"
+        id="myInput"
+        onkeyup="searchFunction()"
+      />
+    </div>
+    <h2>House</h2>
+
+    <div class="container" id="container">
+      <div class="item" onclick="window.location.href='VdoModelCat.html'">
+        <img src="img/cat.jpg" alt="Cat" />
+        <p>Cat</p>
+      </div>
+    </div>
+
+    <script>
+      function navigateToPage2() {
+        window.location.href = "page2.html";
+      }
+
+      function searchFunction() {
+        // Declare variables
+        var input, filter, container, item, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        container = document.getElementById("container");
+        item = container.getElementsByClassName("item");
+
+        // Loop through all list items, and hide those who don't match the search query
+        for (i = 0; i < item.length; i++) {
+          txtValue =
+            item[i].getElementsByTagName("p")[0].textContent ||
+            item[i].getElementsByTagName("p")[0].innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            item[i].style.display = "";
+          } else {
+            item[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
