@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 90vw; 
+            max-width: 700px; 
+            height: 50vh; 
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 30px; 
+            font-size: 18px; 
+            text-align: center;
+            box-sizing: border-box; 
+        }
+
+        .back-btn {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .texttime {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="Animal.html" class="back-btn">กลับหน้าก่อนหน้า</a>
+    <h1>Model Cat</h1>
+    <div class="video-container" >
+        <video controls id="Vdocat">
+            <source src="vdo/Game.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>        
+    </div>
+    <div class="overlay">
+        <p>Model Cat</p>
+        <p>มีการใช้คำสั่ง cut</p>
+        <div class="texttime">
+            <p onclick="StartFromSecond(10)">11:20 ช่อง1</p>
+        </div>
+    </div>
+    <script>
+    var video = document.getElementById("Vdocat");
+
+    function StartFromSecond(seconda) {
+        video.currentTime = seconda;
+        video.play();
+    }
+    </script>
+</body>
+</html>
